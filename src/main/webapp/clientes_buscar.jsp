@@ -3,7 +3,7 @@
 <%@page import="java.util.ArrayList" %>
 <%@page import="pe.edu.tecsup.app.models.Cliente"%>
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -17,7 +17,7 @@
 	
 	<%
 		ArrayList<Cliente> clientes 
-		        = (ArrayList<Cliente>) request.getAttribute("clientes_001");
+			= (ArrayList<Cliente>) request.getAttribute("clientes_005");
 		
 		if (clientes != null) {
 			out.println("<ul>");
