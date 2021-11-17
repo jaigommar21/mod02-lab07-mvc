@@ -10,14 +10,16 @@
 </head>
 <body>
 	<%
-		ArrayList<Cliente> clientes 
-			= (ArrayList<Cliente>) request.getAttribute("clientes_005");
+		ArrayList<Cliente> clientes = (ArrayList<Cliente>) request.getAttribute("clientes_005");
 		
 		if (clientes != null) {
+			
 			out.println("<ul>");
-			for (Cliente x : clientes) {
-				out.println("<li>" + x.getNombreCompleto() + "</li>");
+			
+			for (Cliente c : clientes) {
+				out.println("<li>" + c.getNombreCompleto() + "</li>");
 			}
+			
 			out.println("</ul>");
 		} 	
 	%>

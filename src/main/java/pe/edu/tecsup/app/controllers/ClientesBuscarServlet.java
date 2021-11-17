@@ -52,6 +52,8 @@ public class ClientesBuscarServlet extends HttpServlet {
 		
 		System.out.println("Dentro de ClientesBuscarServlet: " + criterio);
 
+		// datos
+		
 		Cliente c1 = new Cliente();
 		c1.setCodigo(11);
 		c1.setNombres("David");
@@ -64,9 +66,22 @@ public class ClientesBuscarServlet extends HttpServlet {
 		c2.setPaterno("Perez");
 		c2.setMaterno("Quispe");
 
+		// container
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-		clientes.add(c1);
-		clientes.add(c2);
+		
+		if(criterio.equals("CERO")) {
+			// nothing
+		} else if (criterio.equals("UNO")) {
+			clientes.add(c1);	
+		} else if (criterio.equals("DOS")) {
+			clientes.add(c1);
+			clientes.add(c2);		
+		} else {
+			
+		}
+		
+		//clientes.add(c1);
+		//clientes.add(c2);
 
 		
 		// Guardando datos en el scope REQUEST , SESSION , APPLICATION
