@@ -35,10 +35,17 @@ public class ClientesBuscarServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	protected void indentificacion( String nombre, String apellido) {
+		
+	}
+	
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(  HttpServletRequest request, 
+							
+			 				HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
         
 		String criterio = request.getParameter("txtNombres");
@@ -70,7 +77,7 @@ public class ClientesBuscarServlet extends HttpServlet {
 		
 		// Envia la salida al jsp : clientes_buscar.jsp
 		RequestDispatcher rd = 
-				request.getRequestDispatcher("clientes_buscar.jsp");
+				request.getRequestDispatcher("salida.jsp");
 		
 		// Hacer el forward
 		rd.forward(request, response);

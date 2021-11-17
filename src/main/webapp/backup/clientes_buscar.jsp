@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList" %>
+<%@page import="pe.edu.tecsup.app.models.Cliente"%>
 <!DOCTYPE html>
 <html> 
 <head>
@@ -13,5 +17,6 @@
 		<input type="submit" value="Buscar"/>
 	
 	</form>
+
 </body>
 </html>
