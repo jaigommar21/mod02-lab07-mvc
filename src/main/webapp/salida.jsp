@@ -10,6 +10,8 @@
 </head>
 <body>
 	<%
+	    // request , es una variable predefinida en el JSP
+	
 		Cliente cliente = (Cliente) request.getAttribute("cliente_clave");
 		
 		if (cliente != null) {
@@ -22,5 +24,8 @@
 			out.println("</ul>");
 		}
 	%>
+	
+	<p>Mostrar todos los registros de la base de datos :</p>
+	
 </body>
 </html>

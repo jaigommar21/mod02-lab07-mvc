@@ -1,7 +1,9 @@
 package pe.edu.tecsup.app.controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -22,6 +24,9 @@ public class ClientesBuscarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	private Map<String, Cliente> clientes = new HashMap<String, Cliente>();
+
+	private List<Cliente> listaClientes = new ArrayList<Cliente>();
+
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,6 +34,8 @@ public class ClientesBuscarServlet extends HttpServlet {
     public ClientesBuscarServlet() {
         super();
 
+        // Dataset
+        
         // Carga de datos	
         Cliente c1 = new Cliente();
 		c1.setCodigo("X001");
@@ -42,9 +49,21 @@ public class ClientesBuscarServlet extends HttpServlet {
 		c2.setPaterno("Perez");
 		c2.setMaterno("Quispe");
 
+		Cliente c3 = new Cliente();
+		c3.setCodigo("X003");
+		c3.setNombres("Jaime");
+		c3.setPaterno("Perez");
+		c3.setMaterno("Garcia");
+		
 		clientes.put(c1.getCodigo(), c1);
 		clientes.put(c2.getCodigo(), c2);
-        
+		clientes.put(c3.getCodigo(), c3);
+
+		listaClientes.add(c1);
+		listaClientes.add(c2);
+		listaClientes.add(c3);
+		
+		
     }
 
 	/**
@@ -78,8 +97,15 @@ public class ClientesBuscarServlet extends HttpServlet {
 			//		APPLICATION -->
 			// para pasarselo al JSP
 			//                    << key >> , << value >>
+
 			request.setAttribute("cliente_clave", cliente);	
 		}
+		
+		System.out.println(listaClientes);
+		//System.out.println(clientes.values());
+		
+		
+		
 		
 		// Envia la salida al jsp : clientes_buscar.jsp
 		RequestDispatcher rd = 

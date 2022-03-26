@@ -43,9 +43,20 @@ public class Cliente {
 		this.materno = materno;
 	}
 
-	
+	/**
+	 *  Funcionalidad basico
+	 * @return
+	 */
 	public String getNombreCompleto() {
 		return this.nombres + " " + this.paterno + " " + this.materno;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [codigo=" + codigo + ", nombres=" + nombres + ", paterno=" + paterno + ", materno=" + materno
+				+ "]";
 	}	
+	
+	
 }
 

@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<p>C&oacute;digos disponibles : X001 , X002 </p>
+	<p>C&oacute;digos disponibles : X001 , X002, X003 </p>
 	<br>
 	<form action="ClientesBuscarServlet" method="post">
 	
@@ -15,5 +15,6 @@
 		<input type="submit" value="Buscar"/>
 	
 	</form>
+	
 </body>
 </html>
