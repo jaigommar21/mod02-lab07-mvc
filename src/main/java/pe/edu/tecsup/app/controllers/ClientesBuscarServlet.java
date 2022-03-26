@@ -1,7 +1,8 @@
 package pe.edu.tecsup.app.controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,14 +18,33 @@ import pe.edu.tecsup.app.models.Cliente;
  */
 @WebServlet("/ClientesBuscarServlet")
 public class ClientesBuscarServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-       
+    
+	private Map<String, Cliente> clientes = new HashMap<String, Cliente>();
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
     public ClientesBuscarServlet() {
         super();
-        // TODO Auto-generated constructor stub
+
+        // Carga de datos	
+        Cliente c1 = new Cliente();
+		c1.setCodigo("X001");
+		c1.setNombres("David");
+		c1.setPaterno("Rodriguez");
+		c1.setMaterno("Condezo");
+
+		Cliente c2 = new Cliente();
+		c2.setCodigo("X002");
+		c2.setNombres("Juan");
+		c2.setPaterno("Perez");
+		c2.setMaterno("Quispe");
+
+		clientes.put(c1.getCodigo(), c1);
+		clientes.put(c2.getCodigo(), c2);
+        
     }
 
 	/**
@@ -35,11 +55,6 @@ public class ClientesBuscarServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	protected void indentificacion( String nombre, String apellido) {
-		
-	}
-	
-	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -48,47 +63,23 @@ public class ClientesBuscarServlet extends HttpServlet {
 			 				HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
         
-		String criterio = request.getParameter("txtNombres");
+		String criterio = request.getParameter("txtCodigo");
 		
 		System.out.println("Dentro de ClientesBuscarServlet: " + criterio);
 
 		// datos
 		
-		Cliente c1 = new Cliente();
-		c1.setCodigo(11);
-		c1.setNombres("David");
-		c1.setPaterno("Rodriguez");
-		c1.setMaterno("Condezo");
-
-		Cliente c2 = new Cliente();
-		c2.setCodigo(12);
-		c2.setNombres("Juan");
-		c2.setPaterno("Perez");
-		c2.setMaterno("Quispe");
-
-		// container
-		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+		Cliente cliente = clientes.get(criterio);
 		
-		if(criterio.equals("CERO")) {
-			// nothing
-		} else if (criterio.equals("UNO")) {
-			clientes.add(c1);	
-		} else if (criterio.equals("DOS")) {
-			clientes.add(c1);
-			clientes.add(c2);		
-		} else {
-			
+		if ( clientes != null) {
+			// Guardando datos en el scope:
+			//		REQUEST 	--> 
+			//		SESSION 	-->
+			//		APPLICATION -->
+			// para pasarselo al JSP
+			//                    << key >> , << value >>
+			request.setAttribute("cliente_clave", cliente);	
 		}
-		
-		//clientes.add(c1);
-		//clientes.add(c2);
-
-		
-		// Guardando datos en el scope REQUEST , SESSION , APPLICATION
-		// para pasarselo al JSP
-		//                    << key >> , << value >>
-		request.setAttribute("clientes_005", clientes);	
-
 		
 		// Envia la salida al jsp : clientes_buscar.jsp
 		RequestDispatcher rd = 

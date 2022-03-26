@@ -10,18 +10,17 @@
 </head>
 <body>
 	<%
-		ArrayList<Cliente> clientes = (ArrayList<Cliente>) request.getAttribute("clientes_005");
+		Cliente cliente = (Cliente) request.getAttribute("cliente_clave");
 		
-		if (clientes != null) {
-			
+		if (cliente != null) {
 			out.println("<ul>");
-			
-			for (Cliente c : clientes) {
-				out.println("<li>" + c.getNombreCompleto() + "</li>");
-			}
-			
+			out.println("<li>" + cliente.getNombreCompleto() + "</li>");
 			out.println("</ul>");
-		} 	
+		} else {
+			out.println("<ul>");
+			out.println("<li> CODIGO NO ENCONTRADO </li>");
+			out.println("</ul>");
+		}
 	%>
 </body>
 </html>
