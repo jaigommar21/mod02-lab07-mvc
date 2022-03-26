@@ -26,6 +26,14 @@
 	%>
 	
 	<p>Mostrar todos los registros de la base de datos :</p>
+
+	<% 	
+		ArrayList clientes 
+			= (ArrayList) request.getAttribute("lista_clientes_clave");
+	
+		out.println(clientes);
+	
+	%>
 	
 </body>
 </html>

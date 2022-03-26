@@ -104,7 +104,8 @@ public class ClientesBuscarServlet extends HttpServlet {
 		System.out.println(listaClientes);
 		//System.out.println(clientes.values());
 		
-		
+		// Guardo el listado de clientes en el request
+		request.setAttribute("lista_clientes_clave", listaClientes);	
 		
 		
 		// Envia la salida al jsp : clientes_buscar.jsp
