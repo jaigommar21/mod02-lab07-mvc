@@ -8,7 +8,7 @@
 
 	<form action="ClientesBuscarServlet" method="post">
 	
-		Nombres: <input type="text" name="txtNombres"/>
+		C&oacute;digo: <input type="text" name="txtCodigo"/>
 		
 		<input type="submit" value="Buscar"/>
 	

@@ -2,7 +2,7 @@ package pe.edu.tecsup.app.models;
 
 public class Cliente {
 
-	private int codigo;
+	private String codigo;
 	private String nombres;
 	private String paterno;
 	private String materno;
@@ -11,11 +11,11 @@ public class Cliente {
 
 	// Generar los métodos set y get
 	
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
