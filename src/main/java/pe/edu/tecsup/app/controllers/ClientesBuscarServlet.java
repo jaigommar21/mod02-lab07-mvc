@@ -42,9 +42,16 @@ public class ClientesBuscarServlet extends HttpServlet {
 		c2.setPaterno("Perez");
 		c2.setMaterno("Quispe");
 
+		Cliente c3 = new Cliente();
+		c3.setCodigo("X003");
+		c3.setNombres("Jaime");
+		c3.setPaterno("Perez");
+		c3.setMaterno("Garcia");
+		
 		clientes.put(c1.getCodigo(), c1);
 		clientes.put(c2.getCodigo(), c2);
-        
+		clientes.put(c3.getCodigo(), c3);
+
     }
 
 	/**
@@ -80,6 +87,12 @@ public class ClientesBuscarServlet extends HttpServlet {
 			//                    << key >> , << value >>
 			request.setAttribute("cliente_clave", cliente);	
 		}
+		
+		//System.out.println(listaClientes);
+		//System.out.println(clientes.values());
+		
+		// Guardo el listado de clientes en el request
+		//request.setAttribute("lista_clientes_clave", listaClientes);	
 		
 		// Envia la salida al jsp : clientes_buscar.jsp
 		RequestDispatcher rd = 
